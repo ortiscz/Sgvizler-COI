@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="author" content="Petr Tichý">
+  <title>4IZ440 | Petr Tichý
+  </title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <script type="text/javascript" src="js/jquery.js"></script> 
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript" src="http://mgskjaeveland.github.io/sgvizler/v/0.6/sgvizler.js"></script>
+</head>
+<body>
+  <div class="row">
+    <div class="container">
+    <h1>4IZ440 - Propojená data na webu</h1>
+      <div class="col-xs-12">
+      <h2>Vizualizace datové sady <i>"Zákazy české obchodní inspekce"</i></h2>
+        <span id="intro">Toto je prototyp aplikace.
+        </span>
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a data-toggle="tab" href="#pie">TOP 3</a>
+          </li>
+          <li>
+          <a data-toggle="tab" href="#bar">VŠE</a>
+          </li>
+        </ul>
+        <div class="tab-content">       
+          <div id="pie" class="tab-pane fade in active">
+            <div id="chart1"      
+            data-sgvizler-endpoint="http://linked.opendata.cz/sparql/"       
+            data-sgvizler-query="SELECT ?class (count(?class) AS ?noOfInstances)       
+            WHERE{        
+            ?s a <http://data.coi.cz/ontology/Ban>;
+                 <http://data.coi.cz/ontology/zakon> ?class.       
+            }       
+            GROUP BY ?class       
+            ORDER BY DESC (?noOfInstances)"       
+            data-sgvizler-chart="google.visualization.PieChart" 
+            data-sgvizler-chart-options="is3D=true|sliceVisibilityThreshold=.04"      
+            style="width:auto; height:70vh;">
+            </div>
+          </div>
+
+          <div id="bar" class="tab-pane fade">  
+            <div id="chart2"
+             data-sgvizler-endpoint="http://linked.opendata.cz/sparql/"       
+            data-sgvizler-query="SELECT ?class (count(?class) AS ?noOfInstances)       
+            WHERE{        
+            ?s a <http://data.coi.cz/ontology/Ban>;
+                 <http://data.coi.cz/ontology/zakon> ?class.       
+            }       
+            GROUP BY ?class       
+            ORDER BY DESC (?noOfInstances)"       
+            data-sgvizler-chart="google.visualization.Table"                  
+            style="width:81vw; height:70vh;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="social_button">
+      <a href="https://cz.linkedin.com/in/tichyp" target="_blank" id="in">in</a>
+    </div>
+  </div>
+<script type="text/javascript">
+    $(document).ready(function() { sgvizler.containerDrawAll(); });
+  </script>
+</body>
+</html>
