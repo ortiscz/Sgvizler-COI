@@ -33,13 +33,13 @@
           <div id="pie" class="tab-pane fade in active">
             <div id="chart1"      
             data-sgvizler-endpoint="http://linked.opendata.cz/sparql/"       
-            data-sgvizler-query="SELECT ?class (count(?class) AS ?noOfInstances)       
+            data-sgvizler-query="SELECT ?zakon (count(?zakon) AS ?pocetInstanci)       
             WHERE{        
             ?s a <http://data.coi.cz/ontology/Ban>;
-                 <http://data.coi.cz/ontology/zakon> ?class.       
+                 <http://data.coi.cz/ontology/zakon> ?zakon.       
             }       
-            GROUP BY ?class       
-            ORDER BY DESC (?noOfInstances)"       
+            GROUP BY ?zakon
+            ORDER BY DESC (?pocetInstanci)"       
             data-sgvizler-chart="google.visualization.PieChart" 
             data-sgvizler-chart-options="is3D=true|sliceVisibilityThreshold=.04"      
             style="width:auto; height:70vh;">
@@ -49,13 +49,13 @@
           <div id="bar" class="tab-pane fade">  
             <div id="chart2"
              data-sgvizler-endpoint="http://linked.opendata.cz/sparql/"       
-            data-sgvizler-query="SELECT ?class (count(?class) AS ?noOfInstances)       
+            data-sgvizler-query="SELECT ?zakon (count(?zakon) AS ?pocetInstanci)       
             WHERE{        
             ?s a <http://data.coi.cz/ontology/Ban>;
-                 <http://data.coi.cz/ontology/zakon> ?class.       
+                 <http://data.coi.cz/ontology/zakon> ?zakon.       
             }       
-            GROUP BY ?class       
-            ORDER BY DESC (?noOfInstances)"       
+            GROUP BY ?zakon
+            ORDER BY DESC (?pocetInstanci)"       
             data-sgvizler-chart="google.visualization.Table"                  
             style="width:81vw; height:70vh;">
             </div>
